@@ -49,7 +49,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
         </div>
 
         {/* 2. ARI 맞춤 추천 */}
-        <div className="bg-[#FEF9D9] rounded-[24px] p-4 shadow-sm">
+        <div className="bg-[#FEF9D9] rounded-[24px] p-5 shadow-sm">
           <h2 className="text-[13px] font-semibold text-[#D2B48C] mb-2">
             ARI 맞춤 추천
           </h2>
