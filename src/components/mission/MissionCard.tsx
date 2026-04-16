@@ -70,7 +70,7 @@ export default function MissionCard({ mission, index }: MissionCardProps) {
             variant="secondary"
             onClick={handleDecline}
             className={`flex-1 text-[14px] py-2.5 ${
-              isDeferred ? "bg-[#ECEDF0]" : ""
+              isDeferred ? "bg-[#FFFFFF]" : ""
             }`}
           >
             {BUTTON_DECLINE}

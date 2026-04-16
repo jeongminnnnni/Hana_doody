@@ -1,7 +1,7 @@
 export const reportData = {
   myStats: [
     { label: "심리", value: 67, color: "bg-[#8EACCD]" },
-    { label: "행동", value: 83, color: "bg-[#DEE5D4]" },
+    { label: "행동", value: 83, color: "bg-[#8AAD7A]" },
     { label: "경제", value: 50, color: "bg-[#D2B48C]" }, 
   ],
   seniorProfile: {

@@ -27,7 +27,7 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
   };
 
   return (
-    <div className="bg-white px-4 py-3 border-t border-[#ECEDF0]">
+    <div className="bg-transparent px-4 py-3">
       <div className="flex items-center gap-2">
         <input
           type="text"
@@ -36,9 +36,9 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
           onKeyDown={handleKeyDown}
           placeholder="오늘 하루는 어떠셨나요?"
           disabled={disabled}
-          className="flex-1 bg-[#F5F6F8] text-[#3D4149] text-[15px] font-normal
+          className="flex-1 bg-white text-[#3D4149] text-[15px] font-normal
                      placeholder:text-[#A9ADB6] rounded-full px-5 py-3
-                     border border-[#ECEDF0] outline-none
+                     border border-[#ECEDF0] shadow-sm outline-none
                      focus:border-[#8EACCD] transition-colors duration-200
                      disabled:opacity-50"
         />
@@ -47,7 +47,7 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
           onClick={handleSend}
           disabled={disabled || !text.trim()}
           className="w-11 h-11 flex items-center justify-center
-                     bg-[#8EACCD] rounded-full
+                     bg-[#8EACCD] rounded-full shadow-sm
                      disabled:opacity-40 cursor-pointer
                      transition-opacity duration-200"
         >

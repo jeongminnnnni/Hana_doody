@@ -8,7 +8,7 @@ interface DoodyCharacterProps {
 }
 
 export default function DoodyCharacter({
-  size = 64,
+  size = 80,
   className = "",
   src = "/doody.svg", // 기본값은 기존 이미지로 유지
 }: DoodyCharacterProps) {
@@ -22,7 +22,7 @@ export default function DoodyCharacter({
         alt="두디 캐릭터"
         width={size}
         height={size}
-        className="rounded-full object-cover"
+        className="object-cover"
         priority
       />
     </div>

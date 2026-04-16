@@ -33,14 +33,14 @@ export default function BottomNav() {
                   className="flex flex-col items-center"
                   whileTap={{ scale: 0.9 }}
                 >
-                  <div className="w-[72px] h-[72px] bg-[#F5F6F8] rounded-full flex items-center justify-center relative">
-                    <div className="absolute inset-0 bg-white rounded-full m-[1px]"></div>
+                  {/* 복잡한 겹침 테두리를 제거하고 단일 원형 배경에 부드러운 그림자 적용 */}
+                  <div className="w-[60px] h-[60px] bg-[#B9CEE6] rounded-full flex items-center justify-center shadow-md">
                     <Image
                       src="/chat_button.svg"
                       alt="Chat Button"
-                      width={60}
-                      height={60}
-                      className="relative z-10 drop-shadow-md"
+                      width={58}
+                      height={58}
+                      className="relative z-10"
                     />
                   </div>
                 </motion.div>

@@ -83,7 +83,7 @@ export default function SubmissionPopup({
                   두디가 제출을 검사하고 있어요
                 </h2>
                 <p className="text-[14px] text-[#A9ADB6] text-center">
-                  하나의 수고 많았어!
+                  하느라 수고 많았어!
                 </p>
 
                 {/* 로딩 인디케이터 */}
@@ -126,7 +126,7 @@ export default function SubmissionPopup({
                   +{missionReward} 하나머니
                 </h2>
                 <p className="text-[14px] text-[#A9ADB6] text-center mb-8">
-                  청소 미션 하나라 고고해요!
+                  청소 미션 하느라 수고 많았어!
                 </p>
 
                 {/* 버튼 */}

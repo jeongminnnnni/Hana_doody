@@ -11,7 +11,7 @@ export default function MissionHeader() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="flex items-start gap-4 px-5 pt-6 pb-4"
+      className="flex items-start gap-4 px-5 pt-6 pb-4 bg-[#FFFFFF]"
     >
       {/* 두디 캐릭터 */}
       <DoodyCharacter size={56} />
@@ -24,7 +24,7 @@ export default function MissionHeader() {
         <p className="text-[14px] text-[#7D828C] font-normal leading-snug">
           {APP_TAGLINE}
         </p>
-        <Badge variant="reward" className="mt-0.5 w-fit">
+        <Badge variant="reward" className="mt-0.5 w-fit bg-[#D2E0FB]/50">
           {HANA_MONEY_INFO}
         </Badge>
       </div>

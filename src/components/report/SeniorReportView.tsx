@@ -19,7 +19,7 @@ export default function SeniorReportView({ onBack }: SeniorReportViewProps) {
       className="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-[60] bg-[#F5F6F8] overflow-y-auto"
     >
       {/* 헤더 */}
-      <div className="sticky top-0 bg-[#D2E0FB]/60 backdrop-blur-md px-4 pt-4 pb-3 flex items-center z-10 border-b border-[#D2E0FB]/40">
+      <div className="sticky top-0 bg-[#D2E0FB] px-4 pt-4 pb-6 flex items-center z-10 ">
         <button
           onClick={onBack}
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 hover:bg-white transition-colors mr-3"
@@ -36,21 +36,21 @@ export default function SeniorReportView({ onBack }: SeniorReportViewProps) {
         <div className="w-full flex gap-2 pb-2">
           {/* 회복 기간 */}
           <div className="flex-1 bg-white rounded-[16px] p-3 shadow-sm min-w-0">
-            <p className="text-[10px] sm:text-[11px] text-[#A9ADB6] mb-0.5 tracking-tight">회복 기간</p>
+            <p className="text-[10px] sm:text-[11px] text-[#6B7280] mb-0.5 tracking-tight">회복 기간</p>
             <p className="text-[15px] sm:text-[17px] font-semibold text-[#3D4149] mb-1">8개월</p>
-            <p className="text-[9px] sm:text-[10px] text-[#A9ADB6] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">꾸준히 작은 것부터</p>
+            <p className="text-[9px] sm:text-[10px] text-[#6B7280] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">꾸준히 작은 것부터</p>
           </div>
           {/* 가장 힘든 축 */}
           <div className="flex-1 bg-white rounded-[16px] p-3 shadow-sm min-w-0">
-            <p className="text-[10px] sm:text-[11px] text-[#A9ADB6] mb-0.5 tracking-tight">가장 힘든 축</p>
-            <p className="text-[15px] sm:text-[17px] font-semibold text-[#D2B48C] mb-1">경제</p>
-            <p className="text-[9px] sm:text-[10px] text-[#A9ADB6] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">통장 공포 → 극복</p>
+            <p className="text-[10px] sm:text-[11px] text-[#6B7280] mb-0.5 tracking-tight">가장 힘든 축</p>
+            <p className="text-[15px] sm:text-[17px] font-semibold text-[#C8A86B] mb-1">경제</p>
+            <p className="text-[9px] sm:text-[10px] text-[#6B7280] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">통장 공포 → 극복</p>
           </div>
           {/* 첫 미션 */}
           <div className="flex-1 bg-white rounded-[16px] p-3 shadow-sm min-w-0">
-            <p className="text-[10px] sm:text-[11px] text-[#A9ADB6] mb-0.5 tracking-tight">첫 미션</p>
+            <p className="text-[10px] sm:text-[11px] text-[#6B7280] mb-0.5 tracking-tight">첫 미션</p>
             <p className="text-[15px] sm:text-[17px] font-semibold text-[#3D4149] mb-1">물 한 잔</p>
-            <p className="text-[9px] sm:text-[10px] text-[#A9ADB6] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">Lv.1에서 시작</p>
+            <p className="text-[9px] sm:text-[10px] text-[#6B7280] whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">Lv.1에서 시작</p>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ export default function SeniorReportView({ onBack }: SeniorReportViewProps) {
         </div>
 
         {/* 3. 회복 타임라인 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-sm">
+        <div className="bg-white rounded-[24px] p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-6">
             <RotateCcw size={16} className="text-[#8EACCD]" />
             <h2 className="text-[15px] font-semibold text-[#5A5E67]">회복 타임라인</h2>
@@ -88,8 +88,8 @@ export default function SeniorReportView({ onBack }: SeniorReportViewProps) {
                 <span className={`absolute w-3.5 h-3.5 rounded-full -left-[9px] top-1 ${item.dotClass} border-2 border-white`} />
                 
                 {/* 날짜 & 제목 */}
-                <p className="text-[12px] text-[#A9ADB6]">{item.date}</p>
-                <p className="text-[15px] font-semibold text-[#3D4149] mt-0.5 mb-2">{item.title}</p>
+                <p className="text-[12px] text-[#6B7280]">{item.date}</p>
+                <p className="text-[15px] font-semibold text-[#3D4149]">{item.title}</p>
                 
                 {/* 컬러 보더 말풍선 */}
                 <div className={`bg-[#F5F6F8] rounded-[12px] rounded-tl-none p-3.5 border-l-4 ${item.colorClass}`}>

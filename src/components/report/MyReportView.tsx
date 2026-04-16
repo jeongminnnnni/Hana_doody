@@ -19,29 +19,29 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
       className="pb-24"
     >
       {/* 헤더 - 배경색 단색(#D2E0FB)으로 변경 */}
-      <div className="bg-[#D2E0FB] px-5 pt-8 pb-6">
+      <div className="bg-[#D2E0FB] px-6 pt-5 pb-6">
         <h1 className="text-[22px] font-semibold text-[#3D4149] leading-tight">
           닉네임 회복 리포트
         </h1>
-        <p className="text-[14px] text-[#7D828C] font-normal mt-1">
+        <p className="text-[14px] text-[#4A6B8A] font-normal mt-1">
           두디와 대화가 쌓일수록 그려져요
         </p>
       </div>
 
-      <div className="px-5 space-y-4 -mt-2">
+      <div className="px-6 space-y-4 mt-3">
         {/* 1. 이번 주 회복 현황 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-sm border border-white/50 relative z-10">
-          <h2 className="text-[13px] font-semibold text-[#A9ADB6] mb-3">
+        <div className="bg-white rounded-[24px] p-5 shadow-sm border border-white/50 relative z-10">
+          <h2 className="text-[13px] font-semibold text-[#6B7280] mb-3">
             이번 주 회복 현황
           </h2>
           <div className="mb-5">
             <p className="text-[16px] text-[#3D4149] font-medium">조금씩 나아지고 있어요 🌱</p>
-            <p className="text-[15px] text-[#7D828C] mt-0.5">
+            <p className="text-[15px] text-[#4A6B8A] mt-0.5">
               저번주보다 <span className="font-semibold text-[#8EACCD]">경제가 8%</span> 나아졌어요.
             </p>
           </div>
           
-          <div className="space-y-3">
+          <div className="space-y-1">
             {reportData.myStats.map((stat, idx) => (
               <ProgressBar key={idx} {...stat} />
             ))}
@@ -49,7 +49,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
         </div>
 
         {/* 2. ARI 맞춤 추천 */}
-        <div className="bg-[#FEF9D9] rounded-[24px] p-6 shadow-sm">
+        <div className="bg-[#FEF9D9] rounded-[24px] p-4 shadow-sm">
           <h2 className="text-[13px] font-semibold text-[#D2B48C] mb-2">
             ARI 맞춤 추천
           </h2>
@@ -60,7 +60,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
             오늘은 미션 대신 두디랑 얘기해볼까요?
           </p>
           <Button
-            className="w-full bg-[#1e1e24] hover:bg-[#2d2d36] text-white py-3.5"
+            className="w-full bg-[#1e1e24] hover:bg-[#2d2d36] text-white "
             onClick={() => {}}
           >
             두디와 대화하기
@@ -68,12 +68,12 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
         </div>
 
         {/* 3. 선배 매칭 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-sm border border-white/50">
-          <h2 className="text-[13px] font-semibold text-[#A9ADB6] mb-3">
+        <div className="bg-white rounded-[24px] p-5 shadow-sm border border-white/50">
+          <h2 className="text-[13px] font-semibold text-[#6B7280] mb-3">
             선배 매칭
           </h2>
           
-          <div className="bg-[#ffebee] rounded-[16px] p-4 mb-5">
+          <div className="bg-[#ffebee] rounded-[16px] p-3 mb-5">
              <p className="text-[#d86c74] text-[15px] font-medium leading-relaxed">
               나만 이런 게 아니야.<br/>통장 보는 것도 무서웠던 선배가 있어.
              </p>
@@ -92,14 +92,14 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
           </div>
 
           <div className="bg-[#F5F6F8] rounded-[16px] p-4.5 mb-4">
-            <p className="text-[#5A5E67] text-[14px] leading-relaxed whitespace-pre-line">
+            <p className="text-[#6B7280] text-[14px] leading-relaxed whitespace-pre-line">
               {reportData.seniorProfile.message}
             </p>
           </div>
 
           <div className="flex gap-2 mb-5">
             {reportData.seniorProfile.tags.map((tag, idx) => (
-              <span key={idx} className="bg-[#D2E0FB]/50 text-[#6B8CBC] text-[13px] px-3 py-1 rounded-full font-medium">
+              <span key={idx} className="bg-[#D2E0FB] text-[#2E5F8A] text-[13px] px-3 py-1 rounded-full font-medium">
                 {tag}
               </span>
             ))}

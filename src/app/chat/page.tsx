@@ -99,8 +99,8 @@ export default function ChatPage() {
         <div ref={chatEndRef} className="h-1" />
       </div>
 
-      {/* 입력창 - 하단 네비게이션 바로 위에 완벽 밀착 */}
-      <div className="flex-shrink-0 z-10 relative border-t border-[#ECEDF0]">
+      {/* 입력창 - 하단 네비게이션 살짝 위에 */}
+      <div className="flex-shrink-0 relative z-10 pb-10">
         <ChatInput onSend={handleSend} disabled={isTyping} />
       </div>
     </div>
