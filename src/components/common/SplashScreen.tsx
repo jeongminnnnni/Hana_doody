@@ -47,42 +47,34 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
 
       {/* 우측 하단 두디 캐릭터 (크기 더 크게 확대) */}
       <div className="absolute right-[-80px] bottom-[-40px] w-[600px] h-[600px]">
-        <AnimatePresence mode="wait">
-          {!isSmiling ? (
-            <motion.div
-              key="default"
-              initial={{ x: 100, y: 100, opacity: 0 }}
-              animate={{ x: 0, y: 0, opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <Image
-                src="/default_doddy.svg"
-                alt="DOODY"
-                fill
-                className="object-contain object-right-bottom"
-                priority
-              />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="smile"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className="absolute inset-0"
-            >
-              <Image
-                src="/smile_doddy.svg"
-                alt="DOODY Smiling"
-                fill
-                className="object-contain object-right-bottom"
-                priority
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div
+           initial={{ x: 100, y: 100, opacity: 0 }}
+           animate={{ x: 0, y: 0, opacity: 1 }}
+           transition={{ duration: 0.6, ease: "easeOut" }}
+           className="w-full h-full relative"
+        >
+          {/* 기본 두디 */}
+          <div className={`absolute inset-0 transition-opacity duration-500 ${isSmiling ? "opacity-0" : "opacity-100"}`}>
+            <Image
+              src="/default_doddy.svg"
+              alt="DOODY"
+              fill
+              className="object-contain object-right-bottom"
+              priority
+            />
+          </div>
+
+          {/* 스마일 두디 */}
+          <div className={`absolute inset-0 transition-opacity duration-500 ${isSmiling ? "opacity-100" : "opacity-0"}`}>
+            <Image
+              src="/smile_doddy.svg"
+              alt="DOODY Smiling"
+              fill
+              className="object-contain object-right-bottom"
+              priority
+            />
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
