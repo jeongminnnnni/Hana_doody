@@ -1,3 +1,4 @@
+// src/app/chat/page.tsx
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -29,7 +30,7 @@ export default function ChatPage() {
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // 자동 스크롤
+  // 내부 영역만 부드럽게 스크롤
   const scrollToBottom = useCallback(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -66,11 +67,15 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-64px)] bg-[#F5F6F8]">
-      {/* 채팅 헤더 */}
-      <ChatHeader />
+    // 전체 레이아웃을 상단 끝부터 하단 네비게이션 높이까지 완벽하게 고정(fixed)
+    <div className="fixed top-0 bottom-[calc(64px+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 w-full max-w-[430px] flex flex-col bg-[#F5F6F8] z-10">
+      
+      {/* 채팅 헤더 - 고정 영역 */}
+      <div className="flex-shrink-0 shadow-sm z-10 relative">
+        <ChatHeader />
+      </div>
 
-      {/* 채팅 메시지 영역 - 스크롤 가능 */}
+      {/* 채팅 메시지 영역 - 오직 이 영역만 스크롤됨 */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
         {messages.map((msg) => (
           <ChatBubble key={msg.id} sender={msg.sender} content={msg.content} />
@@ -90,11 +95,14 @@ export default function ChatPage() {
           </div>
         )}
 
-        <div ref={chatEndRef} />
+        {/* 스크롤 포커스 타겟 */}
+        <div ref={chatEndRef} className="h-1" />
       </div>
 
-      {/* 입력창 - 바텀 네비 바로 위에 고정 */}
-      <ChatInput onSend={handleSend} disabled={isTyping} />
+      {/* 입력창 - 하단 네비게이션 바로 위에 완벽 밀착 */}
+      <div className="flex-shrink-0 z-10 relative border-t border-[#ECEDF0]">
+        <ChatInput onSend={handleSend} disabled={isTyping} />
+      </div>
     </div>
   );
 }

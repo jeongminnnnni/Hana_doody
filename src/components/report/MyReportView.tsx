@@ -1,7 +1,7 @@
+// src/components/report/MyReportView.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ProgressBar from "./ProgressBar";
 import { reportData } from "@/data/report";
@@ -18,26 +18,26 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
       exit={{ opacity: 0 }}
       className="pb-24"
     >
-      {/* 헤더 */}
-      <div className="bg-gradient-to-b from-[#D2E0FB]/40 to-[#F5F6F8] px-5 pt-8 pb-4">
+      {/* 헤더 - 배경색 단색(#D2E0FB)으로 변경 */}
+      <div className="bg-[#D2E0FB] px-5 pt-8 pb-6">
         <h1 className="text-[22px] font-semibold text-[#3D4149] leading-tight">
           닉네임 회복 리포트
         </h1>
-        <p className="text-[14px] text-[#A9ADB6] font-normal mt-1">
+        <p className="text-[14px] text-[#7D828C] font-normal mt-1">
           두디와 대화가 쌓일수록 그려져요
         </p>
       </div>
 
-      <div className="px-5 space-y-4">
+      <div className="px-5 space-y-4 -mt-2">
         {/* 1. 이번 주 회복 현황 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-sm border border-white/50">
+        <div className="bg-white rounded-[24px] p-6 shadow-sm border border-white/50 relative z-10">
           <h2 className="text-[13px] font-semibold text-[#A9ADB6] mb-3">
             이번 주 회복 현황
           </h2>
           <div className="mb-5">
             <p className="text-[16px] text-[#3D4149] font-medium">조금씩 나아지고 있어요 🌱</p>
             <p className="text-[15px] text-[#7D828C] mt-0.5">
-              저번주보다 <span className="font-semibold text-[#3D4149]">경제</span>가 <span className="font-semibold text-[#8EACCD]">8%</span> 나아졌어요.
+              저번주보다 <span className="font-semibold text-[#8EACCD]">경제가 8%</span> 나아졌어요.
             </p>
           </div>
           

@@ -22,7 +22,7 @@ export default function ChatBubble({ sender, content }: ChatBubbleProps) {
       {isDoody && (
         <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden">
           <Image
-            src="/doody.png"
+            src="/chatDoody.svg"
             alt="두디"
             width={32}
             height={32}

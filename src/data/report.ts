@@ -13,7 +13,7 @@ export const reportData = {
   },
   seniorStats: [
     { label: "심리", past: 30, current: 72, color: "bg-[#8EACCD]" },
-    { label: "행동", past: 40, current: 80, color: "bg-[#DEE5D4]" },
+    { label: "행동", past: 40, current: 80, color: "bg-[#8AAD7A]" },
     { label: "경제", past: 15, current: 65, color: "bg-[#D2B48C]" },
   ],
   timeline: [

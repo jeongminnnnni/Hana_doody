@@ -35,10 +35,10 @@ export default function PhotoUploadArea({
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      {/* 사진 미리보기 영역 */}
+    <div className="flex flex-col gap-3 w-full">
+      {/* 사진 미리보기 영역 - 반응형 */}
       <div
-        className={`relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-2 border-dashed transition-colors duration-200 ${
+        className={`relative w-full aspect-square sm:aspect-[4/2] rounded-2xl overflow-hidden border-2 border-dashed transition-colors duration-200 ${
           isDragging
             ? "border-[#8EACCD] bg-[#D2E0FB]/30"
             : "border-[#ECEDF0] bg-[#F5F6F8]"
@@ -96,7 +96,7 @@ export default function PhotoUploadArea({
                   backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
                 }}
               />
-              <span className="relative text-[15px] text-[#A9ADB6] font-normal">
+              <span className="relative text-[14px] sm:text-[15px] text-[#A9ADB6] font-normal">
                 {label}
               </span>
             </motion.div>
@@ -108,12 +108,12 @@ export default function PhotoUploadArea({
       <button
         type="button"
         onClick={handleClick}
-        className="flex items-center justify-between w-full bg-white rounded-2xl px-5 py-4 border border-[#ECEDF0] cursor-pointer hover:bg-[#FAFBFC] transition-colors"
+        className="flex items-center justify-between w-full bg-white rounded-2xl px-4 sm:px-5 py-3 sm:py-4 border border-[#ECEDF0] cursor-pointer hover:bg-[#FAFBFC] transition-colors"
       >
-        <span className="text-[15px] text-[#A9ADB6] font-normal">
+        <span className="text-[14px] sm:text-[15px] text-[#A9ADB6] font-normal">
           {label} 사진 추가
         </span>
-        <Camera size={22} className="text-[#D2E0FB]" />
+        <Camera size={20} className="sm:w-5.5 sm:h-5.5 text-[#D2E0FB]" />
       </button>
 
       <input

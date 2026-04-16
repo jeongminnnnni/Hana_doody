@@ -1,3 +1,4 @@
+// src/app/mission/[id]/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -9,6 +10,7 @@ import { missionLevels } from "@/data/missions";
 import PhotoUploadArea from "@/components/mission/PhotoUploadArea";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import SubmissionPopup from "@/components/mission/Submissionpopup";
 import { BUTTON_SUBMIT, BUTTON_DEFER, HANA_MONEY_LABEL } from "@/lib/constants";
 
 export default function MissionDetailPage() {
@@ -22,6 +24,7 @@ export default function MissionDetailPage() {
   const [beforePhoto, setBeforePhoto] = useState<string | undefined>();
   const [afterPhoto, setAfterPhoto] = useState<string | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   if (!mission) {
     return (
@@ -34,6 +37,10 @@ export default function MissionDetailPage() {
   const level = missionLevels.find((l) => l.id === mission.levelId);
 
   const handleSubmit = () => {
+    setShowPopup(true);
+  };
+
+  const handlePopupComplete = () => {
     submitMission({
       missionId: mission.id,
       beforePhoto,
@@ -41,6 +48,7 @@ export default function MissionDetailPage() {
       submittedAt: new Date().toISOString(),
     });
     setIsSubmitted(true);
+    setShowPopup(false);
     setTimeout(() => router.push("/"), 1200);
   };
 
@@ -55,10 +63,10 @@ export default function MissionDetailPage() {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -30 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="bg-white min-h-dvh"
+      className="bg-white h-dvh flex flex-col overflow-hidden"
     >
-      {/* 뒤로가기 버튼 */}
-      <div className="px-4 pt-4 pb-2">
+      {/* 뒤로가기 버튼 - 여백 축소 */}
+      <div className="px-4 pt-2 flex-shrink-0">
         <motion.button
           whileTap={{ scale: 0.85 }}
           onClick={() => router.back()}
@@ -68,15 +76,15 @@ export default function MissionDetailPage() {
         </motion.button>
       </div>
 
-      {/* 미션 정보 헤더 */}
-      <div className="px-5 pb-5">
-        <h1 className="text-[22px] font-semibold text-[#3D4149] leading-tight">
+      {/* 미션 정보 헤더 - 여백 축소 */}
+      <div className="px-5 pb-3 flex-shrink-0">
+        <h1 className="text-[20px] font-semibold text-[#3D4149] leading-tight">
           {mission.title}
         </h1>
-        <p className="text-[14px] text-[#A9ADB6] mt-1.5 font-normal">
+        <p className="text-[14px] text-[#A9ADB6] mt-1 font-normal">
           {mission.subtitle}
         </p>
-        <div className="flex items-center gap-2 mt-3">
+        <div className="flex items-center gap-2 mt-2">
           {level && (
             <Badge variant="level">
               Lv.{level.id} — {level.label}
@@ -88,25 +96,25 @@ export default function MissionDetailPage() {
         </div>
       </div>
 
-      {/* 제출 완료 상태 */}
       {isSubmitted ? (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center justify-center py-20 gap-3"
-        >
-          <span className="text-[40px]">🎉</span>
-          <p className="text-[18px] font-semibold text-[#8EACCD]">
-            잘 해냈어요!
-          </p>
+        <div className="flex flex-1 flex-col items-center justify-center py-20 gap-3">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", damping: 15, stiffness: 100 }}
+            className="text-[60px]"
+          >
+            🎉
+          </motion.div>
+          <p className="text-[18px] font-semibold text-[#8EACCD]">잘 해냈어요!</p>
           <p className="text-[14px] text-[#A9ADB6]">
             +{mission.reward} {HANA_MONEY_LABEL} 적립
           </p>
-        </motion.div>
+        </div>
       ) : (
         <>
-          {/* B&A 사진 업로드 영역 */}
-          <div className="px-5 space-y-6 pb-6">
+          {/* 사진 업로드 영역 - 내부 스크롤 허용 */}
+          <div className="flex-1 overflow-y-auto px-5 py-2 space-y-4">
             <PhotoUploadArea
               label="청소 전"
               photo={beforePhoto}
@@ -119,27 +127,25 @@ export default function MissionDetailPage() {
             />
           </div>
 
-          {/* 하단 버튼 */}
-          <div className="sticky bottom-0 bg-white px-5 py-4 border-t border-[#ECEDF0]">
+          {/* 하단 버튼 - 고정 */}
+          <div className="px-5 py-4 border-t border-[#ECEDF0] flex-shrink-0">
             <div className="flex gap-2.5">
-              <Button
-                variant="primary"
-                onClick={handleSubmit}
-                className="flex-1 py-3"
-              >
+              <Button variant="primary" onClick={handleSubmit} className="flex-1 py-3.5">
                 {BUTTON_SUBMIT}
               </Button>
-              <Button
-                variant="secondary"
-                onClick={handleDefer}
-                className="flex-1 py-3"
-              >
+              <Button variant="secondary" onClick={handleDefer} className="flex-1 py-3.5">
                 {BUTTON_DEFER}
               </Button>
             </div>
           </div>
         </>
       )}
+
+      <SubmissionPopup
+        isOpen={showPopup}
+        missionReward={mission.reward}
+        onComplete={handlePopupComplete}
+      />
     </motion.div>
   );
 }
