@@ -46,12 +46,12 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       </motion.h1>
 
       {/* 우측 하단 두디 캐릭터 (크기 더 크게 확대) */}
-      <div className="absolute right-[-80px] bottom-[-40px] w-[600px] h-[600px]">
+      <div className="absolute right-[-80px] bottom-[-40px] w-[500px] h-[500px]">
         <motion.div
-           initial={{ x: 100, y: 100, opacity: 0 }}
-           animate={{ x: 0, y: 0, opacity: 1 }}
-           transition={{ duration: 0.6, ease: "easeOut" }}
-           className="w-full h-full relative"
+          initial={{ x: 100, y: 100, opacity: 0 }}
+          animate={{ x: 0, y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full h-full relative"
         >
           {/* 기본 두디 */}
           <div className={`absolute inset-0 transition-opacity duration-500 ${isSmiling ? "opacity-0" : "opacity-100"}`}>

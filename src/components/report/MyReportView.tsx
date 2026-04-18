@@ -21,7 +21,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
       {/* 헤더 - 배경색 단색(#D2E0FB)으로 변경 */}
       <div className="bg-[#D2E0FB] px-6 pt-5 pb-6">
         <h1 className="text-[22px] font-semibold text-[#3D4149] leading-tight">
-          닉네임 회복 리포트
+          사용자 회복 리포트
         </h1>
         <p className="text-[14px] text-[#4A6B8A] font-normal mt-1">
           두디와 대화가 쌓일수록 그려져요
@@ -40,7 +40,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
               저번주보다 <span className="font-semibold text-[#8EACCD]">경제가 8%</span> 나아졌어요.
             </p>
           </div>
-          
+
           <div className="space-y-1">
             {reportData.myStats.map((stat, idx) => (
               <ProgressBar key={idx} {...stat} />
@@ -61,7 +61,7 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
           </p>
           <Button
             className="w-full bg-[#1e1e24] hover:bg-[#2d2d36] text-white "
-            onClick={() => {}}
+            onClick={() => { }}
           >
             두디와 대화하기
           </Button>
@@ -72,16 +72,16 @@ export default function MyReportView({ onViewSenior }: MyReportViewProps) {
           <h2 className="text-[13px] font-semibold text-[#6B7280] mb-3">
             선배 매칭
           </h2>
-          
+
           <div className="bg-[#ffebee] rounded-[16px] p-3 mb-5">
-             <p className="text-[#d86c74] text-[15px] font-medium leading-relaxed">
-              나만 이런 게 아니야.<br/>통장 보는 것도 무서웠던 선배가 있어.
-             </p>
+            <p className="text-[#d86c74] text-[15px] font-medium leading-relaxed">
+              나만 이런 게 아니야.<br />통장 보는 것도 무서웠던 선배가 있어.
+            </p>
           </div>
 
           <div className="flex items-center gap-3 mb-4">
             <div className="w-11 h-11 bg-[#D2E0FB] rounded-full flex items-center justify-center text-[#8EACCD]">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                 <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
               </svg>
             </div>
